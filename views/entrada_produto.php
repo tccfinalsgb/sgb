@@ -17,7 +17,7 @@
                     <form role="form" method="post" enctype="multipart/form-data">
                         
                         <div class="form-group">
-                            <label for="register-cod"><i class="icon-user"></i> <b>Lote do Produto</b></label>
+                            <label for="register-lote"><i class="icon-user"></i> <b>Lote do Produto</b></label>
                             <input class="form-control" id="register-lote" name="register-lote" type="text" placeholder="">
                         </div>
                         
