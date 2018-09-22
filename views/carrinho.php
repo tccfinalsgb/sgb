@@ -73,7 +73,7 @@
 									<div class="cart-item-title"><a href="page-product-details.html">LOREM IPSUM DOLOR</a></div>
 									<div class="feature color">
 									</div>
-									<div class="feature">Size: <b>XXL</b></div>
+									<div class="feature">Tamanho: <b>XXL</b></div>
 								</td>
 								<td class="quantity">
 									<input class="form-control input-sm input-micro" type="text" value="1">
