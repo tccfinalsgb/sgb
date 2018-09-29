@@ -22,7 +22,7 @@ class Carrinho extends model{
     public function somaValor($pedido) {
         $array = array();
         
-        $sql = $this->db->prepare("SELECT *, SUM(valor_ItemPedido) as valores FROM itempedido WHERE Pedido_idPedido = :pedido AND status_Pedido = 'ANDAMENTO'");
+        $sql = $this->db->prepare("SELECT *, SUM(valor_ItemPedido) as valores FROM itempedido WHERE Pedido_idPedido = :pedido");
         $sql->bindValue(":pedido", $pedido);
         $sql->execute();
         
@@ -66,10 +66,24 @@ class Carrinho extends model{
         return $array;
     }
     
+    public function getPedidoByCliente() {
+        $array = array();
+        
+        $sql = $this->db->prepare("SELECT * FROM pedido WHERE Cliente_idCliente = :id AND status_Pedido = 'ANDAMENTO'");
+        $sql->bindValue(":id", $_SESSION['c_User']);
+        $sql->execute();
+        
+        if ($sql->rowCount() > 0) {
+            $array = $sql->fetch();
+        }
+        
+        return $array;
+    }
+    
     public function getItemPedidoByPedido($pedido) {
         $array = array();
         
-        $sql = $this->db->prepare("SELECT * FROM itempedido WHERE Pedido_idPedido = :id");
+        $sql = $this->db->prepare("SELECT *, (select produto.img from produto where produto.idProduto = itempedido.Produto_idProduto) as imagem, (select produto.titulo from produto where produto.idProduto = itempedido.Produto_idProduto) as titulo, (select produto.qtd_Produto from produto where produto.idProduto = itempedido.Produto_idProduto) as qtd FROM itempedido WHERE Pedido_idPedido = :id");
         $sql->bindValue(":id", $pedido);
         $sql->execute();
         
@@ -78,6 +92,13 @@ class Carrinho extends model{
         }
         
         return $array;
+    }
+    
+    public function delItem($prod, $ped) {
+        $sql = $this->db->prepare("DELETE FROM itempedido WHERE Produto_idProduto = :prod AND Pedido_idPedido = :ped");
+        $sql->bindValue(":prod", $prod);
+        $sql->bindValue(":ped", $ped);
+        $sql->execute();
     }
     
 }
