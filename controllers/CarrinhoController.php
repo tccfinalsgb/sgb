@@ -24,12 +24,14 @@ class CarrinhoController extends controller {
         
         $c = new Carrinho();
         
-        if (isset($_SESSION['pedido']) && !empty($_SESSION['pedido'])) {
+        $pedido = $c->getPedidoByCliente();
+        
+        if (isset($pedido) && !empty($pedido) && count($pedido) > 0) {
             
-            $pedido = $_SESSION['pedido'];
-
-            $dados['pedido'] = $c->getPedidoById($pedido);
-            $dados['itens'] = $c->getItemPedidoByPedido($pedido);
+            $c->somaValor($pedido['idPedido']);
+            
+            $dados['pedido'] = $c->getPedidoById($pedido['idPedido']);
+            $dados['itens'] = $c->getItemPedidoByPedido($pedido['idPedido']);
             
         }
         
@@ -40,8 +42,6 @@ class CarrinhoController extends controller {
     
     public function add($id) {
         
-        
-        
         $p = new Produto();
         $c = new Carrinho();
         
@@ -50,18 +50,28 @@ class CarrinhoController extends controller {
         
         if (count($pedido) > 0) {
             $c->addItemPedido($id, $pedido['idPedido'], $prod['valor']*1.3);
-            $_SESSION['pedido'] = $pedido;
+            $c->somaValor($pedido['idPedido']);
         }else{
             $idPedido = $c->addPedido($prod['valor']*1.3);
             $c->addItemPedido($id, $idPedido, $prod['valor']*1.3);
-            $_SESSION['pedido'] = $idPedido;
+            $c->somaValor($idPedido);
         }
+        
+        
                 
         header("Location: ".HOME."/carrinho");
     }
     
-    public function delProd($idSessao) {
-        unset($_SESSION['car_prods']['idProd'][$idSessao]);
+    public function delItem($item) {
+        $item = explode('-', $item);
+        
+        $c = new Carrinho;
+        
+        $produto = $item[0];
+        $pedido = $item[1];
+        
+        $c->delItem($produto, $pedido);
+        
         header("Location: ".HOME."/carrinho");
     }
     

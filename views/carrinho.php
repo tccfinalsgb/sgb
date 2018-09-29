@@ -12,6 +12,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
+                <?php if(isset($itens) && !empty($itens) && count($itens) > 0): ?>
                 <!-- Action Buttons -->
                 <div class="pull-right">
                     <a href="#" class="btn btn-grey"><i class="glyphicon glyphicon-refresh"></i> ATUALIZAR</a>
@@ -24,15 +25,16 @@
                 <!-- Shopping Cart Items -->
                 <table class="shopping-cart">
                     <!-- Shopping Cart Item -->
+                    
                     <?php foreach($itens as $item): ?>
                     <tr>
                         <!-- Shopping Cart Item Image -->
-                        <td class="image"><a href="#"><img src="<?= HOME; ?>/assets/img/prods/cam.png" alt="Item Name"></a></td>
+                        <td class="image"><a href="#"><img src="<?= HOME; ?>/assets/img/prods/<?= $item['imagem']; ?>" alt="Item Name"></a></td>
                         <!-- Shopping Cart Item Description & Features -->
                         <td>
-                            <div class="cart-item-title"><a href="page-product-details.html">ESTATICO</a></div>
+                            <div class="cart-item-title"><a href="page-product-details.html"><?= utf8_encode($item['titulo']); ?></a></div>
                             
-                            <div class="feature">Qtd em Estoque: <b>100</b></div>
+                            <div class="feature">Qtd em Estoque: <b><?= $item['qtd']; ?></b></div>
                         </td>
                         <!-- Shopping Cart Item Quantity -->
                         <td class="quantity">
@@ -43,11 +45,12 @@
                         <!-- Shopping Cart Item Actions -->
                         <td class="actions">
                             <a href="#" class="btn btn-xs btn-grey"><i class="glyphicon glyphicon-pencil"></i></a>
-                            <a href="<?= HOME; ?>/carrinho/delProd/<?= $_SESSION['car_prods'][$i];?>" class="btn btn-xs btn-grey"><i class="glyphicon glyphicon-trash"></i></a>
+                            <a href="<?= HOME; ?>/carrinho/delItem/<?= $item['Produto_idProduto']."-".$item['Pedido_idPedido'];?>" class="btn btn-xs btn-grey"><i class="glyphicon glyphicon-trash"></i></a>
                         </td>
                     </tr>
                     
                     <?php endforeach; ?>
+                    
                     
                     <!-- End Shopping Cart Item -->
                     
@@ -94,14 +97,20 @@
                     </tr>
                     <tr class="cart-grand-total">
                         <td><b>Total</b></td>
-                        <td><b><?= number_format($somaTotal, 2, ',', '.'); ?></b></td>
+                        <td><b><?= number_format($pedido['valor_total_Pedido'], 2, ',', '.'); ?></b></td>
                     </tr>
+                    
                 </table>
                 <!-- Action Buttons -->
                 <div class="pull-right">
                     <a href="#" class="btn btn-grey"><i class="glyphicon glyphicon-refresh"></i> ATUALIZAR</a>
                     <a href="#" class="btn"><i class="glyphicon glyphicon-shopping-cart icon-white"></i> COMPRAR</a>
                 </div>
+                <?php else: ?>
+                <div class="alert alert-warning" style="border-radius: 10px;">
+                    <h2>Não há itens no seu carrinho!</h2>
+                </div>
+                <?php endif; ?>
             </div>
         </div>
     </div>

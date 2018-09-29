@@ -50,7 +50,7 @@
 						
                                                 </li>
                                                 <li class="<?= ($viewData['menu'] == 'carrinho')?'active':''; ?>">
-                                                    <a href="<?= HOME; ?>/homecliente/carrinho">Carrinho</a>
+                                                    <a href="<?= HOME; ?>/carrinho">Carrinho</a>
 						</li>
                                                 
 						<li class="<?= ($viewData['menu'] == 'hist_compras')?'active':''; ?>">

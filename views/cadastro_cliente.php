@@ -21,11 +21,11 @@
                                         <div id="error" style="background-color: darkred; color: #FFF; text-align: center; padding-top: 10px; padding-bottom: 10px; margin-bottom: 10px; display: none;">CPF ou CNPJ Inválido</div>
                                     <div class="form-group">
                                     <label for="register-cpf"><i class="icon-user"></i> <b>CPF / CNPJ</b></label>
-                                    <input class="form-control mascara-cpfcnpj" id="register-cpf" name="register-cpf" type="text" placeholder="">
+                                    <input class="form-control mascara-cpfcnpj" id="register-cpf" name="register-cpf" type="text" style="width:400px;" placeholder="">
                                     </div>
                                     <div class="form-group">
                                     <label for="register-name"><i class="icon-user"></i> <b>Nome</b></label>
-                                            <input class="form-control" name="register-name" id="register-name" type="text" placeholder="">
+                                            <input class="form-control" name="register-name" id="register-name" type="text" style="width:400px;" placeholder="">
                                     </div>
                                     <div class="form-group">
                                         <label for="register-sexo"><i class="icon-user"></i> <b>Sexo</b></label><br>
@@ -34,23 +34,23 @@
                                     </div>
                                     <div class="form-group">
                                     <label for="register-endereco"><i class="icon-user"></i> <b>Endereço</b></label>
-                                    <input class="form-control" name="register-endereco" id="register-endereco" type="text" placeholder="">
+                                    <input class="form-control" name="register-endereco" id="register-endereco" type="text" style="width:400px;" placeholder="">
                                     </div>
                                     <div class="form-group">
                                     <label for="register-telefone"><i class="icon-user"></i> <b>Telefone</b></label>
-                                    <input class="form-control" name="register-telefone" id="register-telefone" type="text" placeholder="">
+                                    <input class="form-control" name="register-telefone" id="register-telefone" type="text" style="width:400px;" placeholder="">
                                     </div>
                                     <div class="form-group">
                                     <label for="register-username"><i class="icon-user"></i> <b>Email</b></label>
-                                    <input class="form-control" name="register-username" id="register-username" type="text" placeholder="">
+                                    <input class="form-control" name="register-username" id="register-username" type="text" style="width:400px;" placeholder="">
                                     </div>
                                     <div class="form-group">
                                     <label for="register-password"><i class="icon-lock"></i> <b>Digite a Senha</b></label>
-                                    <input class="form-control" name="register-password" id="register-password" type="password" placeholder="">
+                                    <input class="form-control" name="register-password" id="register-password" type="password" style="width:400px;" placeholder="">
                                     </div>
                                     <div class="form-group">
                                     <label for="register-password2"><i class="icon-lock"></i> <b>Digite a Senha Novamente</b></label>
-                                    <input class="form-control" name="register-password2" id="register-password2" type="password" placeholder="">
+                                    <input class="form-control" name="register-password2" id="register-password2" type="password" style="width:400px;" placeholder="">
                                     </div>
 
                                     <div class="form-group">
