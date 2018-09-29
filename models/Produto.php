@@ -98,7 +98,7 @@ class Produto extends model{
     public function getProduto($id) {
         $array = array();
         
-        $sql = $this->db->prepare("SELECT * FROM Produto WHERE idProduto = :id");
+        $sql = $this->db->prepare("SELECT *, (select MAX(itementrada.valor_ItemEntrada) as valorVenda from itementrada where itementrada.Produto_idProduto = produto.idProduto) as valor FROM Produto WHERE idProduto = :id");
         $sql->bindValue(":id", $id);
         $sql->execute();
         
@@ -154,7 +154,7 @@ class Produto extends model{
         $array = array();
                 
         
-        $sql = $this->db->prepare("SELECT * FROM produto LIMIT $limit");
+        $sql = $this->db->prepare("SELECT *, (select MAX(itementrada.valor_ItemEntrada) as valorVenda from itementrada where itementrada.Produto_idProduto = produto.idProduto) as valor FROM produto LIMIT $limit");
         $sql->execute();
         
         if ($sql->rowCount() > 0) {

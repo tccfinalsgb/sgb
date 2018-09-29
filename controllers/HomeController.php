@@ -42,13 +42,14 @@ class HomeController extends controller{
             $email = addslashes($_POST['register-username']);
             $senha = addslashes($_POST['register-password']);
             $senha2 = addslashes($_POST['register-password2']);
+            $sexo = addslashes($_POST['register-sexo']);
             
             if ($senha == $senha2) {
                 if (strlen($cpf_cnpj) == 11 && $p->validaCPF($cpf_cnpj)) {
-                    $idPessoa = $p->addPessoa($cpf_cnpj, $nome, $endereco, $telefone, $email);
+                    $idPessoa = $p->addPessoa($cpf_cnpj, $nome,$sexo, $endereco, $telefone, $email);
                     $c->addCliente($email, $senha, $idPessoa);
                  }else if(strlen($cpf_cnpj) == 14 && $p->validar_cnpj($cpf_cnpj)){
-                    $idPessoa = $p->addPessoa($cpf_cnpj, $nome, $endereco, $telefone, $email);
+                    $idPessoa = $p->addPessoa($cpf_cnpj, $nome, $sexo, $endereco, $telefone, $email);
                     $c->addCliente($email, $senha, $idPessoa);
                  }else{
                      $dados['erro'] = "CPF e/ou CNPJ Inválido!";

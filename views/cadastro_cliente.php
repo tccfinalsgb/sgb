@@ -28,6 +28,11 @@
                                             <input class="form-control" name="register-name" id="register-name" type="text" placeholder="">
                                     </div>
                                     <div class="form-group">
+                                        <label for="register-sexo"><i class="icon-user"></i> <b>Sexo</b></label><br>
+                                        <input class="radio-inline" id="register-sexo" name="register-sexo" checked="checked" type="radio" value="M">&nbsp;Masculino &nbsp;&nbsp;
+                                        <input class="radio-inline" id="register-sexo" name="register-sexo" type="radio" value="F">&nbsp;Feminino
+                                    </div>
+                                    <div class="form-group">
                                     <label for="register-endereco"><i class="icon-user"></i> <b>Endereço</b></label>
                                     <input class="form-control" name="register-endereco" id="register-endereco" type="text" placeholder="">
                                     </div>

@@ -4,34 +4,64 @@ class CarrinhoController extends controller {
     public function __construct(){
         parent::__construct();
         
-        $func = new Funcionario();
+        $p = new Pessoa();
         
-        if ($func->isLogged() == FALSE) {
+        if (!$p->isLogged()) {
             header("Location: ".HOME);
         }
     }
     
     public function index() {
         $dados = array();
-        $cli = new Cliente();
-        $pessoa =  new Pessoa();
-        $dados['cliente'] = $cli->getCliente();
-        $dados['meusDados'] = $pessoa->getMeusDados($dados['cliente']['Pessoa_idPessoa']);
+//        $cli = new Cliente();
+//        $pessoa =  new Pessoa();
+//        $dados['']
+//        $dados['cliente'] = $cli->getCliente();
+//        $dados['meusDados'] = $pessoa->getMeusDados($dados['cliente']['Pessoa_idPessoa']);
         //////////////////////////////////////////////////////////////////////////////////////
         
         $produto = new Produto();
         
-//        if (isset($_SESSION['car_prods']) && !empty($_SESSION['car_prods'])) {
-            $dados['produtos'] = $produto->getProdutos($_SESSION['car_prods']);
-//        }
+        $c = new Carrinho();
         
-//        print_r($_SESSION['car_prods']);exit;
+        if (isset($_SESSION['pedido']) && !empty($_SESSION['pedido'])) {
+            
+            $pedido = $_SESSION['pedido'];
+
+            $dados['pedido'] = $c->getPedidoById($pedido);
+            $dados['itens'] = $c->getItemPedidoByPedido($pedido);
+            
+        }
+        
+//        print_r($_SESSION);exit;
         
         $this->loadTemplateCliente("carrinho", $dados);
     }
     
     public function add($id) {
-        $_SESSION['car_prods'][] = $id;
+        
+        
+        
+        $p = new Produto();
+        $c = new Carrinho();
+        
+        $prod = $p->getProduto($id);
+        $pedido = $c->getPedidoAndamento();
+        
+        if (count($pedido) > 0) {
+            $c->addItemPedido($id, $pedido['idPedido'], $prod['valor']*1.3);
+            $_SESSION['pedido'] = $pedido;
+        }else{
+            $idPedido = $c->addPedido($prod['valor']*1.3);
+            $c->addItemPedido($id, $idPedido, $prod['valor']*1.3);
+            $_SESSION['pedido'] = $idPedido;
+        }
+                
+        header("Location: ".HOME."/carrinho");
+    }
+    
+    public function delProd($idSessao) {
+        unset($_SESSION['car_prods']['idProd'][$idSessao]);
         header("Location: ".HOME."/carrinho");
     }
     

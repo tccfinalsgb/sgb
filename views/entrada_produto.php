@@ -67,9 +67,9 @@
 <!--                        </div>
                         <div class="form-group">-->
                             <button onclick="javascript:history.go(-1);" class="btn btn-green">Voltar</button>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="exampleModalLong">
+<!--                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="exampleModalLong">
                                 Launch demo modal
-                              </button>
+                              </button>-->
                             <!--<div class="clearfix"></div>-->
                             <!--<a href="#" class="btn btn-success" id="botaoExcluir" name="excluir" data-confirm="Tem Certeza que Deseja Excluir o Funcionario Selecionado?">Excluir</a>-->
                         </div>
@@ -122,46 +122,46 @@
 <script>
   $("#register-valor").mask('#.##0,00', {reverse: true});
       
-  $("#register-cod").on('change', function(){
+  $("#register-lote").on('change', function(){
       
-      var codigo = $("#register-cod").val();
+      var codigo = $("#register-lote").val();
       
-//      $.ajax({
-//            url: 'http://localhost/sgb/ajax/produto',
-//            type: 'POST',
-//            data: {codigo:codigo},
-//            dataType: 'json',
-//            success:function(json){
-//                if (json.erro === false) {
-//                    $("#register-cod").val(json.codigo);
-//                    $("#register-titulo").val(json.titulo);
-//                    $("#register-desc").val(json.descricao);
-//                    $("#register-qtdmin").val(json.qtd);
-//                    $("#register-categoria").val(json.categoria);
-//                    $("#register-status").val(json.status);
-//                    $("#imgView").append('<img src="<?= HOME; ?>/assets/img/prods/'+json.img+'" width="100%" class="img-rounded"/>');
-//                    $("#situacao").val("update");
-//                    
-//                    $("#prodC").append('<input type="hidden" value="'+ json.id +'" name="idProd" id="idProd"/>');
-//                    
-//                    $('#botaoExcluir').css('visibility', 'visible');
-//                        
-//                        $('#botaoExcluir').attr("href", "http://localhost/sgb/produtos/del/" + json.id);
-//                        
-//                        $('a[data-confirm]').click(function(){
-//                            var href = $(this).attr('href');
-//                            
-//                            if (!$('#confirm-delete').length) {
-//                                $('body').append('<div class="modal fade" id="confirm-delete" tabindex="1" role="dialog" aria-labelledby="modalLabel"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header">Excluir Produto<button type="button" class="close" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">&times;</span></button></div><div class="modal-body">Tem certeza que deseja realmente excluir este Produto?</div><div class="modal-footer"><button type="button" class="btn btn-success" data-dismiss="modal">Cancelar</button><a class="btn btn-danger text-white" id="dataConfirmOk">Excluir</a></div></div></div></div>');
-//                            }
-//                            $('#dataConfirmOk').attr('href', href);
-//                            $('#confirm-delete').modal({show:true});
-//                            return false;
-//                        });
-//                    
-//                }
-//            }
-//        });
+      $.ajax({
+            url: 'http://localhost/sgb/ajax/produto',
+            type: 'POST',
+            data: {codigo:codigo},
+            dataType: 'json',
+            success:function(json){
+                if (json.erro === false) {
+                    $("#register-lote").val(json.codigo);
+                    $("#register-produto").val(json.titulo);
+                    $("#register-desc").val(json.descricao);
+                    $("#register-qtdmin").val(json.qtd);
+                    $("#register-categoria").val(json.categoria);
+                    $("#register-status").val(json.status);
+                    $("#imgView").append('<img src="<?= HOME; ?>/assets/img/prods/'+json.img+'" width="100%" class="img-rounded"/>');
+                    $("#situacao").val("update");
+                    
+                    $("#prodC").append('<input type="hidden" value="'+ json.id +'" name="idProd" id="idProd"/>');
+                    
+                    $('#botaoExcluir').css('visibility', 'visible');
+                        
+                        $('#botaoExcluir').attr("href", "http://localhost/sgb/produtos/del/" + json.id);
+                        
+                        $('a[data-confirm]').click(function(){
+                            var href = $(this).attr('href');
+                            
+                            if (!$('#confirm-delete').length) {
+                                $('body').append('<div class="modal fade" id="confirm-delete" tabindex="1" role="dialog" aria-labelledby="modalLabel"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header">Excluir Produto<button type="button" class="close" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">&times;</span></button></div><div class="modal-body">Tem certeza que deseja realmente excluir este Produto?</div><div class="modal-footer"><button type="button" class="btn btn-success" data-dismiss="modal">Cancelar</button><a class="btn btn-danger text-white" id="dataConfirmOk">Excluir</a></div></div></div></div>');
+                            }
+                            $('#dataConfirmOk').attr('href', href);
+                            $('#confirm-delete').modal({show:true});
+                            return false;
+                        });
+                    
+                }
+            }
+        });
   });
         
 //  $("#envio").on('click', function(){

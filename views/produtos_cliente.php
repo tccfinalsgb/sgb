@@ -32,7 +32,7 @@
                             
                             <!-- Product Price-->
                             <div class="price">
-                                    R$ 999.99
+                                    <?= number_format(($prod['valor']*1.3), 2, ',', '.'); ?>
                             </div>
                             <!-- Product Description-->
                             <div class="description">
@@ -40,7 +40,7 @@
                             </div>
                             <!-- Add to Cart Button -->
                             <div class="actions">
-                                    <a href="<?= HOME; ?>/homecliente/carrinho/" class="btn"><i class="icon-shopping-cart icon-white"></i>Adicionar ao carrinho</a>
+                                    <a href="<?= HOME; ?>/carrinho/add/<?= $prod['idProduto']; ?>" class="btn"><i class="icon-shopping-cart icon-white"></i>Adicionar ao carrinho</a>
                             </div>
                         </div>
                     <!-- End Product -->
