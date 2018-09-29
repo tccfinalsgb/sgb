@@ -18,12 +18,12 @@
                         
                         <div class="form-group">
                             <label for="register-lote"><i class="icon-user"></i> <b>Lote do Produto</b></label>
-                            <input class="form-control" id="register-lote" name="register-lote" type="text" placeholder="">
+                            <input class="form-control" id="register-lote" name="register-lote" type="text" style="width:400px;" placeholder="">
                         </div>
                         
                         <div class="form-group">
                             <label for="register-produto"><i class="icon-user"></i> <b>Produto</b></label>
-                            <input class="form-control" id="register-produto" name="register-produto" list="prods" type="text" placeholder="">
+                            <input class="form-control" id="register-produto" name="register-produto" list="prods" type="text" style="width:400px;" placeholder="">
                             <datalist id="prods">
                                 <?php foreach ($produtos as $prod): ?>
                                     <option value="<?= utf8_encode($prod['titulo']); ?>"><?= $prod['codigo']; ?></option>
@@ -33,22 +33,22 @@
 
                         <div class="form-group">
                             <label for="register-qtd"><i class="icon-user"></i> <b>Quantidade</b></label>
-                            <input class="form-control" id="register-qtd" name="register-qtd" type="number" placeholder="">
+                            <input class="form-control" id="register-qtd" name="register-qtd" type="number" style="width:400px;" placeholder="">
                         </div>
                         
                         <div class="form-group">
                             <label for="register-valor"><i class="icon-user"></i> <b>Valor</b></label>
-                            <input class="form-control" id="register-valor" name="register-valor" type="text" placeholder="">
+                            <input class="form-control" id="register-valor" name="register-valor" type="text" style="width:400px;" placeholder="">
                         </div>
                         
                         <div class="form-group">
                             <label for="register-entrada"><i class="icon-user"></i> <b>Data de Entrada</b></label>
-                            <input class="form-control" id="register-entrada" name="register-entrada" type="date" placeholder="">
+                            <input class="form-control" id="register-entrada" name="register-entrada" type="date" style="width:400px;"  placeholder="">
                         </div>
 
                         <div class="form-group">
                             <label for="register-fornecedor"><i class="icon-user"></i> <b>Fornecedor</b></label>
-                            <input class="form-control" id="register-fornecedor" name="register-fornecedor" list="forns" type="text" placeholder="">
+                            <input class="form-control" id="register-fornecedor" name="register-fornecedor" list="forns" type="text" style="width:400px;" placeholder="">
                             <datalist id="forns">
                                 <?php foreach ($fornecedores as $forn): ?>
                                     <option value="<?= utf8_encode($forn['nome_Forn']); ?>"><?= $forn['cnpj_Forn']; ?></option>
@@ -58,7 +58,7 @@
                         
                         <div class="form-group">
                             <label for="register-dataPedido"><i class="icon-user"></i> <b>Data do Pedido</b></label>
-                            <input class="form-control" id="register-dataPedido" name="register-dataPedido" type="date" placeholder="">
+                            <input class="form-control" id="register-dataPedido" name="register-dataPedido" type="date" style="width:400px;" placeholder="">
                         </div>
 
                         <div class="form-group">

@@ -85,7 +85,7 @@
 		   	</div>
 		    	<div class="row">
 		    		<div class="col-md-12">
-		    			<div class="footer-copyright">&copy; Desenvolvido por Roberto Galdino e Vitor Hugo Soares.</div>
+		    			<div class="footer-copyright">&copy; Desenvolvido por Roberto Galdino, Vitor Hugo Soares e Suelio Sousa.</div>
 		    		</div>
 		    	</div>
 		    </div>

@@ -26,7 +26,7 @@
                             </div>
                             <!-- Product Title -->
                             <div class="title">
-                                <h3><a href="page-product-details.html"><?= utf8_encode($prod['titulo']); ?></a></h3>
+                                <h3><a href="#"><?= utf8_encode($prod['titulo']); ?></a></h3>
                             </div>
                             <!-- Product Available Colors-->
                             

@@ -18,28 +18,28 @@
                         
                         <div class="form-group">
                             <label for="register-cod"><i class="icon-user"></i> <b>Código do Produto</b></label>
-                            <input class="form-control" id="register-cod" name="register-cod" type="text" placeholder="">
+                            <input class="form-control" id="register-cod" name="register-cod" type="text" style="width:400px;" placeholder="">
                         </div>
                         
                         <div class="form-group">
                             <label for="register-titulo"><i class="icon-user"></i> <b>Título</b></label>
-                            <input class="form-control" id="register-titulo" name="register-titulo" type="text" placeholder="">
+                            <input class="form-control" id="register-titulo" name="register-titulo" type="text" style="width:400px;" placeholder="">
                         </div>
 
                         <div class="form-group">
                             <label for="register-desc"><i class="icon-user"></i> <b>Descrição</b></label>
                             
-                            <textarea class="form-control" id="register-desc" name="register-desc"></textarea>
+                            <textarea class="form-control" id="register-desc" name="register-desc" style="width:400px;"></textarea>
                         </div>
                         
                         <div class="form-group">
                             <label for="register-qtdmin"><i class="icon-user"></i> <b>Quantidade</b></label>
-                            <input class="form-control" id="register-qtdmin" name="register-qtdmin" type="number" placeholder="">
+                            <input class="form-control" id="register-qtdmin" name="register-qtdmin" type="number" style="width:400px;" placeholder="">
                         </div>
                                                
                         <div class="form-group">
                             <label for="register-status"><i class="icon-user"></i> <b>Status</b></label>
-                            <select name="register-status" id="register-status" class="form-control">
+                            <select name="register-status" id="register-status" class="form-control" style="width:400px;">
                                 <option value="ATIVO">ATIVO</option>
                                 <option value="INATIVO">INATIVO</option>
                             </select>
@@ -47,7 +47,7 @@
 
                         <div class="form-group">
                             <label for="register-categoria"><i class="icon-user"></i> <b>Categoria</b></label>
-                            <select name="register-categoria" id="register-categoria" class="form-control">
+                            <select name="register-categoria" id="register-categoria" class="form-control" style="width:400px;">
                                 <?php foreach ($categorias as $cat): ?>
                                 <option value="<?= $cat['idCategoria']; ?>"><?= utf8_encode($cat['nomeCategoria']); ?></option>
                                 <?php endforeach; ?>
@@ -56,7 +56,7 @@
                         
                         <div class="form-group">
                             <label for="register-img"><i class="icon-user"></i> <b>Imagem</b></label>
-                            <input class="form-control" id="register-img" name="register-img" type="file" placeholder="">
+                            <input class="form-control" id="register-img" name="register-img" type="file" style="width:400px;" placeholder="">
                         </div>
 
                         <div class="form-group">
